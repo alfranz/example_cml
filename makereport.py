@@ -6,7 +6,7 @@ def report():
     load_path = "report.ipynb"
     save_path = "report.output.ipynb"
     output = papermill.execute_notebook(
-        load_path, save_path, report_mode=True, nest_asyncio=True, kernel_name='python3'
+        load_path, save_path, report_mode=True, nest_asyncio=True, kernel_name='python'
     )
     exception = output["metadata"]["papermill"]["exception"]
     status_code = os.system("jupyter nbconvert --to markdown report.output.ipynb --no-input")
