@@ -12,6 +12,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           python train.py
+          jupyter kernelspec list
           python makereport.py
           
           cml-send-comment report.output.md
