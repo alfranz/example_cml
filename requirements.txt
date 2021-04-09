@@ -4,3 +4,4 @@ matplotlib
 jupyter-client
 papermill
 nbconvert==5.6.1
+ipython
