@@ -15,3 +15,4 @@ jobs:
           python makereport.py
           cml-publish confusion_matrix.png --md >> report.output.md
           cml-send-comment report.output.md
+          cml-send-github-check report.output.md
