@@ -13,4 +13,5 @@ jobs:
           pip install -r requirements.txt
           python train.py
           python makereport.py
+          cml-publish confusion_matrix.png --md >> report.output.md
           cml-send-comment report.output.md
