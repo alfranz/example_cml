@@ -11,6 +11,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
-          jupyter kernelspec list
+          python train.py
           python makereport.py
           cml-send-comment report.output.md
