@@ -4,26 +4,24 @@ import matplotlib.pyplot as plt
 import json
 import os
 import numpy as np
+import joblib
+import logging
 
 # Read in data
+
+logging.info("Reading data ...")
+
 X_train = np.genfromtxt("data/train_features.csv")
 y_train = np.genfromtxt("data/train_labels.csv")
-X_test = np.genfromtxt("data/test_features.csv")
-y_test = np.genfromtxt("data/test_labels.csv")
 
 
 # Fit a model
 depth = 4
+logging.info("Fitting model ...")
 clf = RandomForestClassifier(max_depth=depth)
 clf.fit(X_train,y_train)
-
-acc = clf.score(X_test, y_test)
-print(acc)
-with open("metrics.txt", 'w') as outfile:
-        outfile.write("Accuracy: " + str(acc) + "\n")
+logging.info("Saving model ...")
+joblib.dump(clf, "data/clf.joblib")
 
 
-# Plot it
-disp = plot_confusion_matrix(clf, X_test, y_test, normalize='true',cmap=plt.cm.Blues)
-plt.savefig('confusion_matrix.png')
-
+logging.info("Done!")
